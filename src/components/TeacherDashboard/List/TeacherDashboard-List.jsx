@@ -1,4 +1,5 @@
 import { STATUSES } from "../TeacherDashboard.constants";
+import './TeacherDashboard-List.css';
 
 export function List({homeworks}) {
     return (
