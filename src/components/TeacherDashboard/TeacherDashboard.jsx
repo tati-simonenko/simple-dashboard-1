@@ -15,10 +15,21 @@ function TeacherDashboard() {
             status: 'NEW',
         }]);
     }
+
+    const onHomeworkStatusChange = (statusChangeData) => {
+        const { id, status } = statusChangeData;
+
+        setHomeworks(prev => prev.map(homework => {
+            if (homework.id === id) {
+                homework.status = status;
+            }
+            return homework;
+        }));
+    }
     
     return (
         <div className="TeacherDashboard">
-            <List homeworks={homeworks} />
+            <List homeworks={homeworks} onHomeworkStatusChange={onHomeworkStatusChange} />
             <Form onAdd={onAddHomework} />
         </div>
     );
