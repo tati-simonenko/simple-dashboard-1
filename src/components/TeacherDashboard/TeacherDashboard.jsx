@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 const LECTIONS = [
     'Events, State', 
@@ -28,6 +29,11 @@ function TeacherDashboard() {
     const onAddHomework = (e) => {
         console.log('onAddHomework');
         console.log(form);
+
+        setHomeworks(prev => [...prev, {
+            ...form,
+            id: uuidv4(),
+        }]);
         e.preventDefault();
     }
     
