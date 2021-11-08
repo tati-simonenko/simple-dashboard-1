@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { INITIAL_FORM_STATE, LECTIONS } from "../TeacherDashboard.constants";
 
-export function Form() {
+export function Form({onAdd}) {
 
     const [form, setForm] = useState(INITIAL_FORM_STATE);
 
@@ -19,6 +19,8 @@ export function Form() {
     const onAddHomework = (e) => {
         console.log('onAddHomework');
         console.log(form);
+
+        onAdd(form);
 
         setForm(INITIAL_FORM_STATE);
 

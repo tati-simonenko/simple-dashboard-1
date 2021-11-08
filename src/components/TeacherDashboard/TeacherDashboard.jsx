@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Form } from './Form/TeacherDashboard-Form';
+import { List } from './List/TeacherDashboard-List';
 
 function TeacherDashboard() {
     const [homeworks, setHomeworks] = useState([]);
@@ -17,6 +18,7 @@ function TeacherDashboard() {
     
     return (
         <div className="TeacherDashboard">
+            <List homeworks={homeworks} />
             <Form onAdd={onAddHomework} />
         </div>
     );
