@@ -34,11 +34,10 @@ export function List({ homeworks, onHomeworkStatusChange }) {
                             onChange={onStatusChange(homework.id)}
                         >
                             <option value="">Choose ...</option>
-                            {STATUSES.map(status => (
+                            {Object.keys(STATUSES).map(status => (
                                 <option value={status} key={status}>{STATUSES[status]}</option>
                             ))}
                         </select>
-                        {STATUSES[homework.status]}
                         </div>
                     </div>
                 ))
