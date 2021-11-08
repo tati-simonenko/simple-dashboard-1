@@ -11,9 +11,19 @@ const INITIAL_FORM_STATE = {
     lection: '',
 }
 
+const STATUSES = {
+    NEW: 'new',
+    INPROGRESS: 'in the process of checking',
+    NEED_FIX: 'need fix',
+    REJECTED: 'rejected',
+    ACCEPTED: 'accepted',
+}
+
 function TeacherDashboard() {
     const [homeworks, setHomeworks] = useState([]);
     const [form, setForm] = useState(INITIAL_FORM_STATE);
+
+    console.log(homeworks);
 
     const onFieldChange = (e) => {
         console.log('onFieldChange');
@@ -33,7 +43,11 @@ function TeacherDashboard() {
         setHomeworks(prev => [...prev, {
             ...form,
             id: uuidv4(),
+            status: STATUSES.NEW,
         }]);
+
+        setForm(INITIAL_FORM_STATE);
+
         e.preventDefault();
     }
     
